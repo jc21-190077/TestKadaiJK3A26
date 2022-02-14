@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
             int result = 0;         //結果     
             int peek = 0;           //peekの取り出し先
             int tem = 0;            //over判定
+            int count = 0;
 
             var que = new Queue<int>();
             
@@ -27,7 +28,14 @@ namespace WindowsFormsApp1
             for (int i  = 0;i < r;i++){
 
                 for (int j = 0 ; j < k; )
-                {                
+                {        
+                    
+                    if(count == g.Length)
+                    {
+                        count = 0;
+                        break;
+                    }
+
                     peek = que.Peek();
                     tem += peek;
                     
@@ -47,8 +55,9 @@ namespace WindowsFormsApp1
                         break;
                     }
                     que.Enqueue(deq);
+                    count++;
                 }
-
+                count = 0;
                 result += mid;
             }
             return result;
