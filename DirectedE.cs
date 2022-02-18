@@ -29,7 +29,7 @@ namespace WindowsFormsApp1
             int top = 1;
             int last = edgeNext.Length;
             int temp = 0;
-            int x = 1;
+            int x = s;  //出発地点の設定
 
 
             while (1 <= last)

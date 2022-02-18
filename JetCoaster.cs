@@ -21,23 +21,24 @@ namespace WindowsFormsApp1
             var que = new Queue<int>();
             
             for(int s = 0; s < g.Length; s++)
-            {
-                que.Enqueue(g[s]);            
+            {                
+                    que.Enqueue(g[s]);
             }
 
             for (int i  = 0;i < r;i++){
 
                 for (int j = 0 ; j < k; )
-                {        
-                    
-                    if(count == g.Length)
+                {   
+                   
+                    //定員数よりグループ数が多い場合
+                    if (count == g.Length)
                     {
                         count = 0;
                         break;
                     }
 
                     peek = que.Peek();
-                    tem += peek;
+                    tem += peek;                    
                     
                     if (tem > k)
                     {
@@ -48,8 +49,9 @@ namespace WindowsFormsApp1
                     deq = que.Dequeue();
                     j += deq;
                     mid = j;
-                
-                    if(j > k)
+                    Console.WriteLine("mid"+mid);
+
+                    if (j > k)
                     {
                         mid -= deq;
                         break;
@@ -57,8 +59,10 @@ namespace WindowsFormsApp1
                     que.Enqueue(deq);
                     count++;
                 }
+                tem = 0;
                 count = 0;
                 result += mid;
+                Console.WriteLine(result);
             }
             return result;
         }
